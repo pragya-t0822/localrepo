@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\ImageService;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class ImageController extends Controller
 {
@@ -17,8 +16,7 @@ class ImageController extends Controller
    public function extract(Request $request){
     $request->validate([
          'image' => 'required|image'
-
-    ]);
+         ]);
     $path = $request->file('image')->store('image');
     $fullPath = storage::path($path);
 
